@@ -1,10 +1,12 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: Obasa
+ * User: Adegoke Obasa
  * Date: 6/2/14
  * Time: 10:55 AM
  */
+
+//TODO Add method to handle http status codes
+// TODO Add default error pages
 
 // Constants
 define('DS', DIRECTORY_SEPARATOR);

@@ -1,5 +1,5 @@
 php_mvc
 =======
-A MVC PHP Framework
+A PHP MVC Framework
 Author: Adegoke Obasa
 Email: adegokeobasa@gmail.com

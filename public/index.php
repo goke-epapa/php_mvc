@@ -16,4 +16,5 @@ if(isset($_GET['url'])){
     $url = $_GET['url'];
 }
 
+$config = parse_ini_file(PARENT_DIR . DS . 'config/config.ini');
 require_once(PARENT_DIR . DS . 'library' . DS . 'bootstrap.php');

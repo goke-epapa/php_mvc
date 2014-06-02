@@ -63,15 +63,17 @@ function callHook()
         $urlArray = array();
         $urlArray = explode('/', $url);
 
+        $queryArray = explode('?', $_SERVER['REQUEST_URI']);
+        if(count($queryArray) >= 2){
+            parse_str($queryArray[1], $queryArray);
+            $_GET = $queryArray;
+        }
+
         $controller = $urlArray[0];
         array_shift($urlArray);
         $action = 'index';
         if(isset($urlArray[0]))
             $action = $urlArray[0];
-        $queryString = '';
-        array_shift($urlArray);
-        if(isset($urlArray))
-            $queryString = $urlArray;
 
         $controllerName = $controller;
         $controller = ucwords($controller);
@@ -82,7 +84,7 @@ function callHook()
             $dispatch = new $controller($model, $controllerName, $action);
 
             if ((int)method_exists($controller, $action)) {
-                call_user_func_array(array($dispatch, $action), $queryString);
+                call_user_func_array(array($dispatch, $action), array());
             } else {
                 /**
                  * Error Generation Code Here
